@@ -18,7 +18,6 @@
 # [[Build information]]
 #
 # Build Parameters: 
-#
 
 #- Touch screen calibration information
 calibrate("9.8014","24","10.3867","22");
