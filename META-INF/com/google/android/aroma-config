@@ -6,28 +6,30 @@
 #
 # Distributed with Team Legacy AllInOneCM10 and above.
 #
-# AllInOneCM10 installation script
+# AllInOneCM10 installation script using aroma with "devpackage"
 #
 # made using some simple code from ONeill123 and the default AROMA sample
 # some bugs fixed by jmztaylor and skippycentral.
 #
 # Thanks to amarullz for the original AROMA installation manifest
-# and BenjaminGwynn for his .sense rom.
 
 
 # [[Build information]]
 #
-# Build Parameters: 
+# This is where we are going to set everything about the build including what phone this 
+# is installing on. Please make sure that you keep version information consistent across
+# different phones.
+#
 
 #- Touch screen calibration information
 calibrate("9.8014","24","10.3867","22");
 #- Installer theme
 theme("ics");
-#- Rom Name
-ini_set("rom_name",             "AIOCM10");
+#- Name
+ini_set("rom_name",             "CM10");
 #- Version
 ini_set("rom_version",          "1");
-#- Rom Author
+#- Me (aren't I awesome)
 ini_set("rom_author",           "TeamLegacy");
 #- Device this is built for (e.g. HeroC)
 ini_set("rom_device",           "HTCLegaC");
@@ -67,7 +69,7 @@ anisplash(
     "splash/a6", 30
 );
 
-#- Simple hack to make sure device is set when booting up AIO
+#- Looks to see if the device is set and if not to refuse to install
 if prop("device.prop","selected")=="0" then
 viewbox(
   #-- Title
@@ -84,6 +86,7 @@ endif;
 
 # Bug fix center
 #
+# If anything is causing bugs put the fixes bellow
 
 
 #- Fixes PIM bug
@@ -166,12 +169,12 @@ agreebox(
 );
 
 #
-# INSTALLATION OPTIONS
+# STEP 6 - INSTALLATION OPTION / NOOB ASK
 #
 
 menubox(
   #-- Title
-    "Please Select Your Device",
+    "Select Your Device",
   
   #-- Sub Title
     "Select your device from the options below.",
@@ -193,7 +196,7 @@ menubox(
 );
 
 #
-# SYSTEM KERNEL INSTALLATION
+# SYSTEM KERNEL INSTALLATION SELECTION FOR "DEVPACKAGE" FILE FORMAT
 #
 
 # Lets look if you have selected HeroC, Hero or Eris and set device.prop to the corresponding choice.
@@ -240,7 +243,7 @@ viewbox(
 
 ##
 #
-# Next Button in successful installation should be back to "Next >"
+# Next Button in successfull installation should be back to "Next >"
 #
 ini_set("text_next", "Next >");
 
@@ -281,7 +284,7 @@ ini_set("text_next", "Finish");
 
 viewbox(
   #-- Title
-    "Installation Complete",
+    "Installation Completed",
   
   #-- Text
     "<#selectbg_g><b>Congratulations...</b></#>\n\n"+
